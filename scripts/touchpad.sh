@@ -14,10 +14,10 @@ fi
 # Toggle state.
 if [ "$CURRENT" = "enabled" ]; then
     hyprctl keyword "device[$TOUCHPAD]:enabled" false &&
-        echo "disabled" >"$STATE_FILE"
-    # notify-send "Touchpad disabled"
+        echo "disabled" >"$STATE_FILE" &&
+        notify-send "Touchpad disabled"
 else
     hyprctl keyword "device[$TOUCHPAD]:enabled" true &&
-        echo "enabled" >"$STATE_FILE"
-    # notify-send "Touchpad enabled"
+        echo "enabled" >"$STATE_FILE" &&
+        notify-send "Touchpad enabled"
 fi
